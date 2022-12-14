@@ -42,7 +42,7 @@ public class SpriteToMesh : MonoBehaviour
     {
 
 
-        int gridcount = 10;
+        int gridcount = 30;
         SpriteRenderer sprender = GetComponent<SpriteRenderer>();
         List<Vector2> vector2s = new List<Vector2>();
         List<ushort> triangles = new List<ushort>();
@@ -69,16 +69,25 @@ public class SpriteToMesh : MonoBehaviour
                 Vector2 p;
                 p.x = quad[0].x * unitsize.x + atpos.x;
                 p.y = quad[0].y * unitsize.y + atpos.y;
+                p.x = Mathf.Clamp(p.x, 0f, sp.textureRect.size.x);
+                p.y = Mathf.Clamp(p.y, 0f, sp.textureRect.size.y);
                 vector2s.Add(p);
                 p.x = quad[1].x * unitsize.x + atpos.x;
                 p.y = quad[1].y * unitsize.y + atpos.y;
+                p.x = Mathf.Clamp(p.x, 0f, sp.textureRect.size.x);
+                p.y = Mathf.Clamp(p.y, 0f, sp.textureRect.size.y);
                 vector2s.Add(p);
                 p.x = quad[2].x * unitsize.x + atpos.x;
                 p.y = quad[2].y * unitsize.y + atpos.y;
+                p.x = Mathf.Clamp(p.x, 0f, sp.textureRect.size.x);
+                p.y = Mathf.Clamp(p.y, 0f, sp.textureRect.size.y);
                 vector2s.Add(p);
                 p.x = quad[3].x * unitsize.x + atpos.x;
                 p.y = quad[3].y * unitsize.y + atpos.y;
+                p.x = Mathf.Clamp(p.x, 0f, sp.textureRect.size.x);
+                p.y = Mathf.Clamp(p.y, 0f, sp.textureRect.size.y);
                 vector2s.Add(p);
+                
                 
 
                 for (int k = 0; k < quadTrangles.Length; k++)
